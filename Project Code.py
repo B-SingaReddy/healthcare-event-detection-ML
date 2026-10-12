@@ -8,16 +8,13 @@ from sklearn.tree import DecisionTreeClassifier, plot_tree
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 import shap
 
-# ---------------------------
-# SAFE BACKUP LIME (NO scikit-image)
-# ---------------------------
 try:
     from lime.lime_tabular import LimeTabularExplainer
     LIME_AVAILABLE = True
 except:
     print("\n⚠ LIME is not fully available (scikit-image issue). Using fallback...\n")
     LIME_AVAILABLE = False
-# ---------------------------
+
 
 file_path = "healthcare_event_anomaly_dataset.csv"
 df = pd.read_csv(file_path)
